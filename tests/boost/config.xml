@@ -1,0 +1,19 @@
+<debug>
+    <filename>debug.log</filename>
+    <modules>
+        <module>Finance</module>
+        <module>Admin</module>
+        <module>HR</module>
+    </modules>
+    <modules>
+        <module>Finance 2</module>
+        <module>Admin 2</module>
+        <module>HR 2</module>
+        <test>
+          <val1>val 1</val1>
+          <val2>val 2</val2>
+          <val3>2.36541</val3>
+        </test>
+    </modules>
+    <level>2</level>
+</debug>

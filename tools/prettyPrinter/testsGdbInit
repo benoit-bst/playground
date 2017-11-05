@@ -1,0 +1,4 @@
+python
+from tests import register_tests_printers
+register_tests_printers(None)
+end

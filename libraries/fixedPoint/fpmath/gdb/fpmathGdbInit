@@ -1,0 +1,4 @@
+python
+from fpmath import register_fpml_printers
+register_fpml_printers(None)
+end
