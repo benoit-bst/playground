@@ -42,4 +42,6 @@ int main()
       std::cout << "Erreur : débordment de mémoire " << "\n";
     }
   }
+
+  throw 20;
 }

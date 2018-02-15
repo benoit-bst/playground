@@ -1,8 +1,10 @@
 #include <iostream>
 #include <memory>
+#include <boost/shared_ptr.hpp>
+#include <boost/pool/object_pool.hpp>
 
 // Smart ptr
-// compile : g++ -std=c++11 test_smart_ptr.cpp
+// compile : g++ -std=c++11 -DBOOST_SYSTEM_NO_DEPRECATED -lboost_filesystem test_smart_ptr.cpp
 int main()
 {
   std::cout << "Smart Pointer :" << std::endl << std::endl;
@@ -99,4 +101,42 @@ int main()
 
     //SmartPtr ptr2 = new int(); // interdit à cause du explicit
   }
+
+  {
+    // std::unique_ptr
+    std::unique_ptr<int> ptr1(new int(9));
+    std::unique_ptr<float> ptr2(new float(9.0f));
+    std::unique_ptr<double> ptr3(new double(2.1));
+    std::cout << "sizeof std::unique_ptr<int>    : " << sizeof(ptr1) << std::endl; // 8
+    std::cout << "sizeof std::unique_ptr<float>  : " << sizeof(ptr2) << std::endl; // 8
+    std::cout << "sizeof std::unique_ptr<double> : " << sizeof(ptr3) << std::endl; // 8
+  }
+  {
+    // std::shared_ptr
+    std::shared_ptr<int> ptr1(new int(9));
+    std::shared_ptr<float> ptr2(new float(9.0f));
+    std::shared_ptr<double> ptr3(new double(2.1));
+    std::cout << "sizeof std::shared_ptr<int>    : " << sizeof(ptr1) << std::endl; // 16
+    std::cout << "sizeof std::shared_ptr<float>  : " << sizeof(ptr2) << std::endl; // 16
+    std::cout << "sizeof std::shared_ptr<double> : " << sizeof(ptr3) << std::endl; // 16
+  }
+  {
+    // std::shared_ptr
+    boost::shared_ptr<int> ptr1(new int(9));
+    boost::shared_ptr<float> ptr2(new float(9.0f));
+    boost::shared_ptr<double> ptr3(new double(2.1));
+    std::cout << "sizeof boost::shared_ptr<int>    : " << sizeof(ptr1) << std::endl; // 16
+    std::cout << "sizeof boost::shared_ptr<float>  : " << sizeof(ptr2) << std::endl; // 16
+    std::cout << "sizeof boost::shared_ptr<double> : " << sizeof(ptr3) << std::endl; // 16
+  }
+  {
+    // boost::object_pool
+    boost::object_pool<int> pool1;
+    boost::object_pool<double> pool2;
+    std::cout << "sizeof boost::object_pool<int>   : " << sizeof(pool1) << std::endl; // 56
+    std::cout << "sizeof boost::object_pool<int>   : " << sizeof(pool2) << std::endl; // 56
+  }
+
+
+
 }

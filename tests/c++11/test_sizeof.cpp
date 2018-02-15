@@ -126,6 +126,46 @@ int main()
     cout << "sizeof static : " << sizeof(BaseStatic) << endl;  // = 4 la taille d'un int (a)
   }
 
+  /*
+   * tests size foa class with function
+   */
+  {
+    class Base
+    {
+      float a;
+      void funcA();
+      void funcB(int b);
+    };
+
+    cout << "sizeof Base : " << sizeof(Base) << endl;  // 48 = 4*10 + 8
+  }
+
+  /*
+   * ordering class
+   */
+  {
+    class Base
+    {
+      int a;
+      int* prt;
+    };
+
+    cout << "sizeof Base : " << sizeof(Base) << endl;  // 16 = 4 + padding(4) + 8
+  }
+
+  /*
+   * ordering class
+   */
+  {
+    class Base
+    {
+      int* prt;
+      int a;
+    };
+
+    cout << "sizeof Base : " << sizeof(Base) << endl;  // 16 = 8 + padding(4) + 4
+  }
+
   return 0;
 
 }
