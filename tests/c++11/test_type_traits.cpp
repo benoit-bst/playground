@@ -2,17 +2,19 @@
 #include <type_traits>
 #include <vector>
 
+namespace lol {
+
 // TRAIT is_int
 template <typename T>
-struct is_int
+struct is_int : std::false_type
 {
-  static const bool value = false;
 };
 template <>
-struct is_int<int>
+struct is_int<int> : std::true_type
 {
-  static const bool value = true;
 };
+
+} // namespace lol
 
 // Vector
 // compile : g++ -std=c++11 test_type_traits.cpp
@@ -53,7 +55,6 @@ int main()
   // Specialization
   // Usefull for trait
   {
-    is_int<10>::value;
-
+    std::cout << "lol::is_int<int>::value : " << lol::is_int<int>::value << std::endl;
   }
 }

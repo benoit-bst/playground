@@ -130,7 +130,7 @@ int main()
     std::cout << "sizeof boost::shared_ptr<double> : " << sizeof(ptr3) << std::endl; // 16
   }
   {
-    // boost::object_pool
+    // boost::object_pool (Good perf when you have intensive malloc and free)
     boost::object_pool<int> pool1;
     boost::object_pool<double> pool2;
     std::cout << "sizeof boost::object_pool<int>   : " << sizeof(pool1) << std::endl; // 56
