@@ -4,7 +4,7 @@ SET(MAIN_SOURCES
   main.cpp
 )
 
-set(TOTO OFF) # ou set(TOTO OFF)
+option(TOTO "Active toto" ON)
 if (TOTO)
   add_definitions(-DTOTO)
 endif()
