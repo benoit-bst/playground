@@ -46,6 +46,46 @@ public:
   template <typename T> void func(std::complex<T> & var){std::cout << "template 2 " << var << "\n";};
 };
 
+
+
+//--------------------------------------
+// test trait with template
+//--------------------------------------
+struct Traits {
+
+  static constexpr int kikou() {
+      return {};
+  }
+
+};
+
+class Test1 : public Traits {
+
+public:
+  static constexpr int kikou() {
+      return 20;
+  };
+};
+
+class Test2 : public Traits {
+
+public:
+  static constexpr int kikou() {
+      return 20;
+  };
+};
+
+template <typename T = Traits>
+class TemplateClass {
+
+public:
+  TemplateClass() {};
+  int var1() {return T::kikou();};
+
+private:
+ int _var1;
+};
+
 /*
  * compile : g++ -std=c++11 test_template.cpp
  * C++11 : Introduction des variadiques templates
@@ -79,4 +119,11 @@ int main()
   B b4;
   std::complex<int> comp1(1.5,1.5);;
   b4.func(comp1);
+
+  // template with a trait
+  TemplateClass<Test1> tC1;
+  std::cout << tC1.var1() << std::endl;
+
+  TemplateClass<Test2> tC2;
+  std::cout << tC2.var1() << std::endl;
 }
