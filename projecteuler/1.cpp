@@ -7,15 +7,18 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    size_t sum = 0;
-    for(size_t i = 0; i < 1000; ++i) {
-        if ((i % 3 == 0) || (i % 5 == 0)) {
-            sum += i;
+    // my solution
+    {
+        size_t sum = 0;
+        for(size_t i = 0; i < 1000; ++i) {
+            if ((i % 3 == 0) || (i % 5 == 0)) {
+                sum += i;
+            }
         }
+        cout << "result : " << sum << endl; // 233168
     }
-    cout << "result : " << sum << endl; // 233168
 
     return 0;
 }
