@@ -22,9 +22,20 @@ int main()
   int *ptri;
   std::cout << "size of void pointer  : " << sizeof(ptrv) << std::endl;
   std::cout << "size of int  pointer  : " << sizeof(ptri) << std::endl;
+
   std::cout << "size of char          : " << sizeof(char) << std::endl;
   std::cout << "size of bool          : " << sizeof(bool) << std::endl;
+
+  std::cout << "size of int           : " << sizeof(int) << std::endl;
   std::cout << "size of size_t        : " << sizeof(size_t) << std::endl;
+  std::cout << "size of int8_t        : " << sizeof(int8_t) << std::endl;
+  std::cout << "size of int16_t       : " << sizeof(int16_t) << std::endl;
+  std::cout << "size of int32_t       : " << sizeof(int32_t) << std::endl;
+  std::cout << "size of int64_t       : " << sizeof(int64_t) << std::endl;
+  std::cout << "size of uint8_t       : " << sizeof(uint8_t) << std::endl;
+  std::cout << "size of uint32_t      : " << sizeof(uint32_t) << std::endl;
+
+
   std::cout << "size of short         : " << sizeof(short) << " - max : " << std::numeric_limits< short >::max() << " - min : " << std::numeric_limits< short >::min() << " - 2^" << sizeof(short)*8 << "=" << std::pow(2,sizeof(short)*8) << std::endl;
   std::cout << "size of int           : " << sizeof(int) << " - max : " << std::numeric_limits< int >::max() << " - min : " << std::numeric_limits< int >::min() << " - 2^" << sizeof(int)*8 << "=" << std::pow(2,sizeof(int)*8) << std::endl;
   std::cout << "size of float         : " << sizeof(float) << " - max : " << std::numeric_limits< float >::max() << " - min : " << std::numeric_limits< float >::min() << std::endl;
