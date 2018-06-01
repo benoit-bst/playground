@@ -4,7 +4,8 @@
 
 namespace lol {
 
-// TRAIT is_int
+//************************************
+// TRAIT : is_int
 template <typename T>
 struct is_int : std::false_type
 {
@@ -14,9 +15,31 @@ struct is_int<int> : std::true_type
 {
 };
 
+template <typename T>
+void func(T var)
+{
+  std::cout << is_int<T>::value << std::endl;
+
+  int a = 0;
+  a += var;
+};
+
+template<typename T>
+class classWithTrait : is_int<T>
+{
+private:
+  T _val;
+public:
+  classWithTrait(T val): _val(val) {std::cout << is_int<T>::value << std::endl;};
+};
+
+
 } // namespace lol
 
-// Vector
+//************************************
+
+
+
 // compile : g++ -std=c++11 test_type_traits.cpp
 int main()
 {
@@ -56,5 +79,11 @@ int main()
   // Usefull for trait
   {
     std::cout << "lol::is_int<int>::value : " << lol::is_int<int>::value << std::endl;
+
+    lol::func<int>(10);
+    lol::func<float>(10);
+
+    lol::classWithTrait<int> c1(10);
+    lol::classWithTrait<float> c2(10);
   }
 }

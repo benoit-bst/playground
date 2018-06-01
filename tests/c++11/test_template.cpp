@@ -1,5 +1,9 @@
 #include <iostream>
 #include <complex>
+#include <typeinfo>
+#include <tuple>
+#include <vector>
+#include <string>
 
 //*************************************
 // Template
@@ -47,7 +51,6 @@ public:
 };
 
 
-
 //--------------------------------------
 // test trait with template
 //--------------------------------------
@@ -85,6 +88,33 @@ public:
 private:
  int _var1;
 };
+
+//************************************
+// Multi template
+template <typename... Args>
+void func_to_test_typeid(Args... args) {
+
+    std::tuple<Args...> argsTuple{std::forward<Args>(args)...};
+    int val = std::tuple_size<decltype(argsTuple)>::value;
+
+    // std::cout << "size " << val << std::endl; not work because get add a const int
+    // for(size_t i = 0; i < val; ++i) {
+    //   std::get<i>(argsTuple);
+    // }
+
+}
+
+template<unsigned Idx, class ...Args>
+using Selector = std::tuple_element<Idx, std::tuple<Args...>>;
+
+template<class... Args>
+void foo(Args... args) {
+  static_assert(sizeof...(Args) >= 3, "Erreur : au moins 3 arguments attendus");
+  using Type1 = typename Selector<0, Args...>::type;
+  using Type2 = typename Selector<1, Args...>::type;
+  using Type3 = typename Selector<2, Args...>::type;
+  // ...
+}
 
 /*
  * compile : g++ -std=c++11 test_template.cpp
@@ -126,4 +156,10 @@ int main()
 
   TemplateClass<Test2> tC2;
   std::cout << tC2.var1() << std::endl;
+
+  // test typeid with template
+  // func_to_test_typeid<int, float, double>(3, 3.4f, 5.789);
+  func_to_test_typeid(3, 3.4f, 5.789);
+
+  foo(1,2,3);
 }

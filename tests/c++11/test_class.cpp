@@ -109,7 +109,7 @@ int main()
     std::cout << " - Derived " << d.x << "\n";
     Base *b = new Derived();
     // std::cout << " - Derived " << b->x << "\n";
-    b->show(); 
+    b->show();
   }
 
   //-------------------------------------------------------------------------------------------------------------
@@ -510,6 +510,22 @@ int main()
     A a6 = std::move(a1);
     std::cout << "a6 = a1 size : " << a6.size() << std::endl;
     std::cout << "a1 size      : " << a1.size() << std::endl;
+  }
+
+  {
+    struct Kikou {
+      int a;
+      int b;
+      std::string str;
+    };
+
+    Kikou kikou {
+      10,
+      20,
+     std::string("kikkou")
+    };
+
+    std::cout << "kikou.a " << kikou.a << " - kikou.b " << kikou.b << " - kikou.str " << kikou.str << std::endl;
   }
 
 
