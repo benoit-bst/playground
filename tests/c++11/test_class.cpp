@@ -86,6 +86,10 @@ int main()
   }
 
   {
+    std::cout << "---------------------------------\n";
+    std::cout << "- When you inherit, base function\n";
+    std::cout << "- are called if we are in dynamic\n";
+
     class Base
     {
     public:
@@ -107,9 +111,10 @@ int main()
     };
     Derived d;
     std::cout << " - Derived " << d.x << "\n";
-    Base *b = new Derived();
+    Base *b = new Derived;
     // std::cout << " - Derived " << b->x << "\n";
     b->show();
+    std::cout << "\n---------------------------------\n";
   }
 
   //-------------------------------------------------------------------------------------------------------------
