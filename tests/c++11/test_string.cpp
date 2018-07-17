@@ -19,4 +19,7 @@ int main()
   std::string s2 {"1\n22\n333"};
   
   std::cout << "string s2 :" << s2 << std::endl;
+
+  std::string s22 = R"#(stop_area . uri ( "OIF:42" ) )#";
+  std::cout << "string s22 :" << s22 << std::endl;
 }
