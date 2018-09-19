@@ -53,11 +53,26 @@ std::unique_ptr<int> make_int_unique(int i)
   return std::unique_ptr<int>(new int(i));
 }
 
+/*
+ * Perfect forwarding
+ */
 template<typename T, typename P1>
 std::shared_ptr<T> factory(P1 &&p1)
 {
   return std::shared_ptr<T>(new T(std::forward<P1>(p1)));
 }
+
+template<typename T>
+class some_struct
+{
+    T _v;
+public:
+    template<typename U>
+    some_struct(U&& v)
+        : _v(std::forward<U>(v)) // std::forward<U>(v) is a static_cast<U&&>(v)
+    {
+    }
+};
 
 /*
  * rvalue(C++11 concept)/lvalue
@@ -180,4 +195,6 @@ int main()
   };
   std::string hello("Hello");
   std::shared_ptr<A> p4 = factory<A>(hello);
+
+  some_struct<int> s1(3);
 }
