@@ -13,7 +13,8 @@ int main()
 {
   //---------------------------------------------
   // static_cast
-  // Ne peut pas convertir double* en float*
+  // during compile time
+  // can't convert from double* to float*
   void *p1;
   long *p2 = static_cast<long*>(p1); // = p1 ne compile pas
 
@@ -22,11 +23,14 @@ int main()
 
   //---------------------------------------------
   // Reinterpret_cast
+  // during compile time
+  // high cost because it perform a binary copy...
   double *dp;
   float *fp = reinterpret_cast<float*>(dp);
 
   //---------------------------------------------
   // const_cast
+  // during compile time
   // hacker la sécurité qu'apporte les const des pointeurs et références
   // Ne marche pas avec :
   // const int* b1;
@@ -49,9 +53,9 @@ int main()
   class carre : public polygone {};
 
   carre monCarre;
-  carre& r_carre = monCarre;
-  polygone& r_polygone = dynamic_cast<polygone&>(r_carre);
+  carre& r_carre1 = monCarre;
+  polygone& r_polygone1 = dynamic_cast<polygone&>(r_carre1);
 
-  polygone& r_polygone = monCarre;
-  carre& r_carre = dynamic_cast<carre&>(r_polygone);
+  polygone& r_polygone2 = monCarre;
+  carre& r_carre2 = dynamic_cast<carre&>(r_polygone2);
 }
