@@ -24,6 +24,8 @@ int main()
   std::cout << "string s22 :" << s22 << std::endl;
 
   std::string lol = "i";
+  std::string lol_cat;
   bool res = lol.empty();
   std::cout << res << std::endl;
+  std::cout << lol_cat.empty() << std::endl;
 }
