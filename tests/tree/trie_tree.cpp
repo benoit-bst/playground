@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -51,7 +52,7 @@ void insert(TrieNode& root, string& key)
 
 bool search(TrieNode& root, string& key)
 {
-    struct TrieNode *pCrawl = &root;
+    TrieNode *pCrawl = &root;
 
     for (int i = 0; i < key.length(); i++)
     {
@@ -88,6 +89,8 @@ int main()
     match_key = "these";
     search(root, match_key)? cout << "Yes\n" :
                            cout << "No\n";
+
+    assert(true == true);
     return 0;
 }
 
