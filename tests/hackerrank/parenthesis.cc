@@ -1,5 +1,7 @@
+#include <atomic>
 #include <iostream>
 #include <vector>
+#include <stack>
 
 
 /*
@@ -11,11 +13,7 @@
 
  Input ")(", Output: False
       "(((", "))("
-
-sorry I lost my connection okay
-are you here ?
-
- */
+*/
 
 using namespace std;
 
@@ -50,25 +48,49 @@ bool isWellParenthesized(string word) {
 
 }
 
+bool isWellParenthesized_2(string word) {
+
+    stack<char> s;
+    for (int i = 0; i < word.size(); ++i) {
+        if (word[i] == '(') {
+            s.push(word[i]);
+        }
+        if (word[i] == ')') {
+            if (s.empty() || (s.top() == ')'))
+                return false;
+            else
+                s.pop();
+        }
+    }
+
+    return s.empty() ? true: false;
+}
+
 // To execute C++, please define "int main()"
 int main() {
   string words = "()())";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   words = "(()())";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   words = ")()()";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   words = ")(";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   words = ")";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   words = "()";
   cout << isWellParenthesized(words) << endl;
+  cout << isWellParenthesized_2(words) << endl;
 
   return 0;
 }
