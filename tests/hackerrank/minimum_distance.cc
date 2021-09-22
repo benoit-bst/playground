@@ -40,6 +40,7 @@ int minimumDistances_2(vector<int> nums) {
             {
                 best_distance = distance;
             }
+            continue;
         }
 
         // update reference to hash table entry
@@ -52,8 +53,15 @@ int minimumDistances_2(vector<int> nums) {
 // g++ -std=c++11 minimum_distance.cc
 int main()
 {
-    vector<int> input = {7, 1, 3, 4, 1, 7};
+    vector<int> input = {7, 1, 3, 4, 1, 7}; // 3
     cout << minimumDistances(input) << endl;
     cout << minimumDistances_2(input) << endl;
 
+    input = {7, 1, 1, 4, 3, 7}; // 1
+    cout << minimumDistances(input) << endl;
+    cout << minimumDistances_2(input) << endl;
+
+    input = {7, 1, 6, 4, 3, 7}; // 5
+    cout << minimumDistances(input) << endl;
+    cout << minimumDistances_2(input) << endl;
 }

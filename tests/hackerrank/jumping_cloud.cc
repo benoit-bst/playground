@@ -11,25 +11,29 @@ using namespace std;
 
 int jumpingOnClouds(vector<int> c) {
 
-    int ans = 0;
-    int position = 0;
     int n = c.size();
-
-    while (position < n - 1) {
-        position++;
-        if (position + 1 <= n - 1 && c[position + 1] != 1) {
-        position++;
+    int jumps = 0, i = 0;
+    while(i < n-1) {
+        if(c[i+2] == 0) {
+            jumps++;
+            i += 2;
+        }else if(c[i+1] == 0) {
+            jumps++;
+            i += 1;
         }
-        ans++;
     }
-    return ans;
+    return jumps;
 }
 
 // g++ -std=c++11 jumping_cloud.cc
 int main()
 {
-    vector<int> c = {0, 0, 0, 0, 1, 0};
+    vector<int> c = {0, 0, 0, 0, 1, 0}; // 3
     cout << jumpingOnClouds(c) << endl;
-
-
+    c = {0, 0, 0, 0, 0, 0}; // 3
+    cout << jumpingOnClouds(c) << endl;
+    c = {0, 1, 0, 1, 0, 1, 0, 1, 0, 0}; // 5
+    cout << jumpingOnClouds(c) << endl;
+    c = {0, 0, 1, 0, 1, 0, 0, 0}; // 4
+    cout << jumpingOnClouds(c) << endl;
 }

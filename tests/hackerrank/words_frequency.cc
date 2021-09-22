@@ -8,12 +8,13 @@ unordered_map<string, int> count_words(vector<string> words) {
     unordered_map<string, int> hash;
     // for each word
     for (auto& word: words) {
-        auto it = hash.find(word);
-        if (it != hash.end()) {
-            it->second++;
-        } else {
-            hash[word] = 1;
-        }
+        //auto it = hash.find(word);
+        //if (it != hash.end()) {
+        //    it->second++;
+        //} else {
+        //    hash[word] = 1;
+        //}
+        ++hash[word];
     }
     return hash;
 }
