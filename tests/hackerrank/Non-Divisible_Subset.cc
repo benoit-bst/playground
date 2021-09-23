@@ -4,6 +4,25 @@ using namespace std;
 
 int nonDivisibleSubset(int k, vector<int> s) {
 
+    set<int> f;
+
+    for (int i = 0; i < s.size(); i++) {
+        for (int j = i + 1; j < s.size(); ++j) {
+            if (((s[i] + s[j]) % k) != 0) {
+                if (s[i] % k != 0) {
+                    f.insert(s[i]);
+                }
+                if (s[j] % k != 0) {
+                    f.insert(s[j]);
+                }
+            }
+        }
+    }
+    return f.size();
+}
+
+int nonDivisibleSubset_2(int k, vector<int> s) {
+
     vector<int> f;
     f.resize(k);
 
@@ -27,19 +46,31 @@ int nonDivisibleSubset(int k, vector<int> s) {
     return res;
 }
 
-
+// https://medium.com/@mrunankmistry52/non-divisible-subset-problem-comprehensive-explanation-c878a752f057
 // g++ -std=c++11 Non-Divisible_Subset.cc
 int main()
 {
     std::vector<int> input = {3, 7, 2, 9, 1};
     int k = 3;
     cout << nonDivisibleSubset(k, input) << endl;
+    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << "-------------" << endl;
     input = {2, 2, 2, 2, 2};
     cout << nonDivisibleSubset(k, input) << endl;
+    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << "-------------" << endl;
     input = {3, 3, 3, 3, 3};
     cout << nonDivisibleSubset(k, input) << endl;
+    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << "-------------" << endl;
     input = {1, 7, 2, 4};
-    k = 2;
+    k = 3;
     cout << nonDivisibleSubset(k, input) << endl;
+    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << "-------------" << endl;
+    input = {278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436};
+    k = 7;
+    cout << nonDivisibleSubset(k, input) << endl;
+    cout << nonDivisibleSubset_2(k, input) << endl;
     return 0;
 }
