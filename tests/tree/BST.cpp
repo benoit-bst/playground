@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 
 // g++ -std=c++11 BST.cpp
 
@@ -152,6 +153,18 @@ Node* max(Node* root)
   return current;
 }
 
+// Max BST
+void reverse_tree(Node* root)
+{
+  if (root != nullptr) {
+
+    std::swap(root->left, root->right);
+    reverse_tree(root->left);
+    reverse_tree(root->right);
+  }
+
+}
+
 bool ifBstTree(Node* root)
 {
   static Node* prev = nullptr;
@@ -189,6 +202,14 @@ int main()
   root->right->left = new Node(102);
   root->right->right = new Node(120);
 
+
+  // reverse
+  inorder(root); std::cout << "\n";
+  reverse_tree(root);
+  inorder(root); std::cout << "\n";
+  reverse_tree(root);
+  inorder(root); std::cout << "\n";
+
   inorder(root);
   std::cout << "\n";
   preorder(root);
@@ -214,6 +235,7 @@ int main()
   std::cout << "\n";
   std::cout << "Min : " << min(root)->item  << "\n";
   std::cout << "Max : " << max(root)->item  << "\n";
+
 
   Node* root2 = new Node(100, new Node(35), new Node(110));
 
