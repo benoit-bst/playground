@@ -64,6 +64,39 @@ void printList(Node *node)
         cout<<node->data<<" ";
         node = node->next;
     }
+    cout << endl;
+}
+
+Node* delete_node(Node* head, int key) {
+
+  Node* prev = nullptr;
+  Node* current = head;
+
+  if (head == NULL) {
+     return NULL;
+  }
+  if (head->data == key) {
+    return head->next;
+  }
+
+  while (current != nullptr) {
+
+      if (current->data == key) {
+
+          prev->next = current->next;
+          delete current;
+          current = prev->next;
+          return head;
+
+      } else {
+
+          prev = current;
+          current = current->next;
+
+      }
+  }
+
+  return head;
 }
 
 /* Driver code*/
@@ -91,6 +124,12 @@ int main()
 
     cout << "Merged Linked List is: \n";
     printList(res);
+
+    auto output = delete_node(res, 11);
+    printList(output);
+
+    output = delete_node(res, 10);
+    printList(output);
 
     return 0;
 }
