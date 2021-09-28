@@ -1,6 +1,7 @@
 #include <iostream>
 #include <utility>
 
+using namespace std;
 // g++ -std=c++11 BST.cpp
 
 class Node
@@ -184,6 +185,29 @@ bool ifBstTree(Node* root)
   return true;
 }
 
+/* Given two trees, return true if they are
+structurally identical */
+int identicalTrees(Node* a, Node* b)
+{
+    /*1. both empty */
+    if (a == NULL && b == NULL)
+        return 1;
+
+    /* 2. both non-empty -> compare them */
+    if (a != NULL && b != NULL)
+    {
+        return
+        (
+            a->item == b->item &&
+            identicalTrees(a->left, b->left) &&
+            identicalTrees(a->right, b->right)
+        );
+    }
+
+    /* 3. one empty, one not -> false */
+    return 0;
+}
+
 //----------------------------------------
 // Test
 //----------------------------------------
@@ -248,6 +272,16 @@ int main()
 
   std::cout << "Is BST : " << ifBstTree(root) << "\n";
   std::cout << "Is BST : " << ifBstTree(root2) << "\n";
+
+  {
+      Node* root1 = new Node(100, new Node(35), new Node(110));
+      Node* root2 = new Node(100, new Node(35), new Node(110));
+      cout << identicalTrees(root1, root2) << endl;
+
+      root1 = new Node(100, new Node(35), new Node(110));
+      root2 = new Node(100, new Node(35), new Node(113));
+      cout << identicalTrees(root1, root2) << endl;
+  }
 
   return 0;
 }
