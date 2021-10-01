@@ -2,6 +2,20 @@
 
 using namespace std;
 
+void backtracking(vector<vector<size_t> >& matrix, vector<vector<bool> >& checked, int x, int y) {
+
+    if (x >= matrix.size() || y >= matrix.size() || x < 0 || y < 0 || checked[x][y] == true)
+        return;
+
+    cout << matrix[x][y] << " ";
+    checked[x][y] = true;
+
+    backtracking(matrix, checked, x + 1, y);
+    backtracking(matrix, checked, x, y + 1);
+    backtracking(matrix, checked, x - 1, y);
+    backtracking(matrix, checked, x, y - 1);
+};
+
 int main()
 {
     vector<string> in = {"A", "B", "C", "D", "E", "F"};
@@ -200,6 +214,25 @@ int main()
             }
             cout << endl;
         }
+    }
+    {
+        /*
+         * O(N^2)
+         *
+         * flood recursion
+         */
+        cout << "-----------------" << endl;
+        vector<vector<bool> > checked;
+        checked.resize(matrix.size());
+        for (int i = 0; i < matrix.size(); ++i) {
+            checked[i].resize(matrix[i].size());
+            for (auto _row : checked[i]) {
+                _row = false;
+            }
+        }
+
+        backtracking(matrix, checked, 0, 0);
+        cout << endl;
     }
 
     return 0;
