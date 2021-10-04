@@ -6,6 +6,7 @@ bool is_valid_coord(int mat_size, int x, int y) {
     return !(x >= mat_size || y >= mat_size || x < 0 || y < 0);
 };
 
+// O(4*mn)=(mn)
 void recursion_flood(vector<vector<int> >& matrix, int oldSlot, int newSlot, int x, int y) {
 
     if (!is_valid_coord(matrix.size(), x, y))

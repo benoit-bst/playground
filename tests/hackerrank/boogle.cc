@@ -24,6 +24,7 @@ bool isWord(string& str)
 }
 
 // A recursive function to print all words present on boggle
+// O(N2⋅8N2)
 void findWordsUtil(vector<vector<char>>& boggle, vector<vector<bool>>& visited, int i, int j, string& str)
 {
     if (!is_valid_coord(boggle.size(), i, j) || visited[i][j] == true || str.size() >= max_word_size) {

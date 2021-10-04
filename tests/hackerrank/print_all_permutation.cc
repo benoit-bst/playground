@@ -18,6 +18,9 @@ void permute(string a, int l, int r, set<string>& res)
 
             // Recursion called
             permute(a, l+1, r, res);
+
+            // Swapping done
+            swap(a[l], a[i]); // BACKTRACK
         }
     }
 }
