@@ -57,8 +57,8 @@ bool solve_queen_utils(vector<vector<int>>& board, int col) {
 // A simple way for rat in a maze
 // We can move only right and bottom
 // start (0, 0) and end (N,N)
-// Time Complexity: O(2^(n^2))
-// Space Complexity: O(n^2)
+// Time Complexity: O(2^(n))
+// Space Complexity: O(n)
 bool solve_queen(vector<vector<int>>& board) {
 
     if (!solve_queen_utils(board, 0)) {

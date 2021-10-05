@@ -235,6 +235,53 @@ int main()
         cout << endl;
     }
 
+
+    {
+        /*
+         * O(N)
+         *
+         * diagonal
+         *
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         * 1 2 3 4 5 6 7 8 9
+         *
+         * 3 2 1
+         * 3 2 1
+         * 3 4 5
+         * 3 4 5 6 7 8 9
+         */
+        cout << "-----------------" << endl;
+        int start_x = 2;
+        int start_y = 2;
+        /* Check upper diagonal on left side */
+        for (int i = start_x, j = start_y; i >= 0 && j >= 0; i--, j--)
+            cout << matrix[i][j]<< " ";
+        cout << endl;
+
+        /* Check lower diagonal on left side */
+        for (int i = start_x, j = start_y; i < matrix.size() && j >= 0; i++, j--)
+            cout << matrix[i][j]<< " ";
+        cout << endl;
+
+        /* Check upper diagonal on right side */
+        for (int i = start_x, j = start_y; j < matrix.size() && i >= 0; i--, j++)
+            cout << matrix[i][j]<< " ";
+        cout << endl;
+
+        /* Check lower diagonal on right side */
+        for (int i = start_x, j = start_y; j < matrix.size() && i < matrix.size(); i++, j++)
+            cout << matrix[i][j]<< " ";
+        cout << endl;
+
+    }
+
     return 0;
 }
 
