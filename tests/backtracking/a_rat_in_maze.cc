@@ -40,7 +40,7 @@ bool solve_maze_utils(vector<vector<int>>& maze, int x, int y, vector<vector<int
             return true;
         }
 
-        sol[x][y] = 0;
+        sol[x][y] = 0; // BACKTRACK
         return false;
 
     }
