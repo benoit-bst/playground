@@ -1,8 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// O(2^N)
-// golden ration O(1.6180^n)
+// O(2^N) -> ² wgolden ratio O(1.6180^n)
 // Extra Space: O(n) if we consider the function call stack size, otherwise O(1).
 int rec_fib(int n)
 {
