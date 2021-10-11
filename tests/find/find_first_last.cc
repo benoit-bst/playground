@@ -28,8 +28,8 @@ void findFirstAndLast(vector<int> arr, int x)
 int main()
 {
     vector<int> arr = { 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 };
-    int x = 3;
-    findFirstAndLast(arr, x);
+    int x = 2;
+    findFirstAndLast(arr, x); // first : 1, 4
     return 0;
 }
 
