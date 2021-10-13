@@ -19,7 +19,7 @@ void printMaxActivities(vector<int> s, vector<int> f)
 
     // The first activity always gets selected
     i = 0;
-    cout <<" "<< i;
+    cout << " " << i;
 
     // Consider rest of the activities
     for (j = 1; j < s.size(); j++)
@@ -29,7 +29,7 @@ void printMaxActivities(vector<int> s, vector<int> f)
       // activity, then select it
       if (s[j] >= f[i])
       {
-          cout <<" " << j;
+          cout << " " << j;
           i = j;
       }
     }
