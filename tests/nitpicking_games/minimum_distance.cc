@@ -53,15 +53,19 @@ int minimumDistances_2(vector<int> nums) {
 // g++ -std=c++11 minimum_distance.cc
 int main()
 {
-    vector<int> input = {7, 1, 3, 4, 1, 7}; // 3
+    vector<int> input = {7, 1, 3, 4, 1, 7}; // 3 with 1
     cout << minimumDistances(input) << endl;
     cout << minimumDistances_2(input) << endl;
 
-    input = {7, 1, 1, 4, 3, 7}; // 1
+    input = {7, 1, 1, 4, 3, 7}; // 1 with 1
     cout << minimumDistances(input) << endl;
     cout << minimumDistances_2(input) << endl;
 
-    input = {7, 1, 6, 4, 3, 7}; // 5
+    input = {7, 1, 6, 4, 3, 7}; // 5 with 7
+    cout << minimumDistances(input) << endl;
+    cout << minimumDistances_2(input) << endl;
+
+    input = {8, 1, 2, 2, 3, 8}; // 1 with 2
     cout << minimumDistances(input) << endl;
     cout << minimumDistances_2(input) << endl;
 }

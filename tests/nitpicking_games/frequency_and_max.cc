@@ -25,6 +25,9 @@ int main()
 {
     vector<int> input = {2, 2, 2, 3, 1};
     cout << equalizeArray(input) << endl;
+    // 1 occur 1
+    // 2 occur 3
+    // 3 occur 1
 
     return 0;
 }
