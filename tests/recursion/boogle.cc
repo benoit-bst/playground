@@ -24,7 +24,7 @@ bool isWord(string& str)
 }
 
 // A recursive function to print all words present on boggle
-// O(N^2⋅8^(N^2))
+// O(N^2⋅8^(2^N))
 // O(N^2)
 void findWordsUtil(vector<vector<char>>& boggle, vector<vector<bool>>& visited, int i, int j, string& str)
 {
