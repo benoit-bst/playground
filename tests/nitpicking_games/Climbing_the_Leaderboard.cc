@@ -33,6 +33,7 @@ int main()
     vector<int> player = {5, 25, 50, 120};
     auto position = climbingLeaderboard(ranked, player);
 
+    // corresponding Positions for the vector player
     // 6 -> 4 -> 2 -> 1
     return 0;
 }

@@ -52,25 +52,25 @@ int main()
 {
     std::vector<int> input = {3, 7, 2, 9, 1};
     int k = 3;
-    cout << nonDivisibleSubset(k, input) << endl;
-    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << nonDivisibleSubset(k, input) << endl;   // 3
+    cout << nonDivisibleSubset_2(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {2, 2, 2, 2, 2};
-    cout << nonDivisibleSubset(k, input) << endl;
-    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << nonDivisibleSubset(k, input) << endl;   // 1
+    cout << nonDivisibleSubset_2(k, input) << endl; // 5
     cout << "-------------" << endl;
     input = {3, 3, 3, 3, 3};
-    cout << nonDivisibleSubset(k, input) << endl;
-    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << nonDivisibleSubset(k, input) << endl;   // 0
+    cout << nonDivisibleSubset_2(k, input) << endl; // 1
     cout << "-------------" << endl;
     input = {1, 7, 2, 4};
     k = 3;
-    cout << nonDivisibleSubset(k, input) << endl;
-    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << nonDivisibleSubset(k, input) << endl;   // 3
+    cout << nonDivisibleSubset_2(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436};
     k = 7;
-    cout << nonDivisibleSubset(k, input) << endl;
-    cout << nonDivisibleSubset_2(k, input) << endl;
+    cout << nonDivisibleSubset(k, input) << endl;   // 15
+    cout << nonDivisibleSubset_2(k, input) << endl; // 11
     return 0;
 }
