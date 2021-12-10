@@ -47,7 +47,7 @@ void expand(string str, int low, int high, unordered_set<string> &set)
         low--, high++;
     }
 }
-
+// O(N*N/2) -> O(N^2)
 void findPalindromicSubstrings(string str)
 {
     // create an empty set to store all unique palindromic substrings
