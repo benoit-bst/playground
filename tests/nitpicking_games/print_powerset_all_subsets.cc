@@ -23,6 +23,7 @@ void printPowerSet(string s) {
 
 int main()
 {
+    printPowerSet("abc"); // a b ab c ac bc abc
     printPowerSet("abcd"); // prints all subsets of abcd
     return 0;
 }

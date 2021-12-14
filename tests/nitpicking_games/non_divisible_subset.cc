@@ -2,15 +2,18 @@
 
 using namespace std;
 
+// O(N^2)
+// O(1)
 int nonDivisibleSubset(int k, vector<int> s) {
 
     set<int> f;
 
     for (int i = 0; i < s.size(); i++) {
         for (int j = i + 1; j < s.size(); ++j) {
+
             if (((s[i] + s[j]) % k) != 0) {
                 if (s[i] % k != 0) {
-                    f.insert(s[i]);
+                  f.insert(s[i]);
                 }
                 if (s[j] % k != 0) {
                     f.insert(s[j]);
@@ -20,6 +23,28 @@ int nonDivisibleSubset(int k, vector<int> s) {
     }
     return f.size();
 }
+
+int non_divisible_subset(int k, vector<int> s) {
+
+    vector<int> f;
+    f.resize(k);
+
+    // Fill frequency array with values modulo K
+    for (int i = 0; i < s.size(); i++)
+        f[s[i] % k]++;
+
+    int rv = min(1, s[0]);
+    for (int i = 1; 2*i <= k; ++i) {
+        int j = (k - i) % k;
+        if (i == j) {
+            rv += min(1, f[i]);
+        } else {
+            rv += max(f[i], f[j]);
+        }
+    }
+    return rv;
+}
+
 
 int nonDivisibleSubset_2(int k, vector<int> s) {
 
@@ -54,23 +79,28 @@ int main()
     int k = 3;
     cout << nonDivisibleSubset(k, input) << endl;   // 3
     cout << nonDivisibleSubset_2(k, input) << endl; // 3
+    cout << non_divisible_subset(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {2, 2, 2, 2, 2};
     cout << nonDivisibleSubset(k, input) << endl;   // 1
     cout << nonDivisibleSubset_2(k, input) << endl; // 5
+    cout << non_divisible_subset(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {3, 3, 3, 3, 3};
     cout << nonDivisibleSubset(k, input) << endl;   // 0
     cout << nonDivisibleSubset_2(k, input) << endl; // 1
+    cout << non_divisible_subset(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {1, 7, 2, 4};
     k = 3;
     cout << nonDivisibleSubset(k, input) << endl;   // 3
     cout << nonDivisibleSubset_2(k, input) << endl; // 3
+    cout << non_divisible_subset(k, input) << endl; // 3
     cout << "-------------" << endl;
     input = {278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436};
     k = 7;
     cout << nonDivisibleSubset(k, input) << endl;   // 15
     cout << nonDivisibleSubset_2(k, input) << endl; // 11
+    cout << non_divisible_subset(k, input) << endl; // 3
     return 0;
 }
