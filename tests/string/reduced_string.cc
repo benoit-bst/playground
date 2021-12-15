@@ -38,6 +38,9 @@ int main()
     str = "aabbccdd";
     cout << superReducedString(str) << endl; // Empty String
 
+    str = "aaaabbbbcccc";
+    cout << superReducedString(str) << endl; // Empty String
+
     str = "aaabbbcccddd";
     cout << superReducedString(str) << endl; // abcd
 
