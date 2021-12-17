@@ -3,6 +3,8 @@
 using namespace std;
 
 
+// O(4*N + N*logN)
+// O(N)
 void closest_numbers(vector<int>& input) {
 
     map<int,int> answer;
