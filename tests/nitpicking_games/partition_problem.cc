@@ -79,7 +79,7 @@ bool canPartition(vector<int>& nums) {
 int main()
 {
     std::vector<int> input = {1, 5, 11, 5};
-    cout << findPartition(input) << endl;   // true
+    cout << findPartition(input) << endl;   // true - 11, 1 5 5
     cout << canPartition(input) << endl;    // true
 
     input = {3, 7, 2};
