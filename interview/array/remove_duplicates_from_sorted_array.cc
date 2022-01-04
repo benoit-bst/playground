@@ -2,8 +2,8 @@
 
 using namespace std;
 
-// time : O(N + N*log(N)) -> O(N*log(N))
-// space : O(U) with U = the number of unique number
+// time : O(N)
+// space : O(1)
 int inplace_remove_duplicates(vector<int>& arr)
 {
     int n = arr.size();
