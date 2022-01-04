@@ -2,53 +2,68 @@
 
 using namespace std;
 
-// Function to remove duplicate elements
-// This function returns new size of modified
-// array.
-int inplace_remove_duplicates(vector<int> arr)
+// time : O(N + N*log(N)) -> O(N*log(N))
+// space : O(U) with U = the number of unique number
+int inplace_remove_duplicates(vector<int>& arr)
 {
     int n = arr.size();
-	// Return, if array is empty
-	// or contains a single element
-	if (n == 0 || n == 1)
-		return n;
+    if (n == 0 || n == 1)
+        return n;
 
-	int temp[n];
+    // To store index of next unique element
+    int j = 0;
 
-	// Start traversing elements
-	int j = 0;
-	for (int i = 0; i < n-1; i++)
+    // Doing same as done in Method 1
+    // Just maintaining another updated index i.e. j
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] != arr[i + 1]) {
+            arr[j++] = arr[i];
+        }
+    }
 
-		// If current element is not equal
-		// to next element then store that
-		// current element
-		if (arr[i] != arr[i + 1])
-			temp[j++] = arr[i];
+    arr[j++] = arr[n-1];
 
-	// Store the last element as whether
-	// it is unique or repeated, it hasn't
-	// stored previously
-	temp[j++] = arr[n - 1];
-
-	// Modify original array
-	for (int i = 0; i < j; i++)
-		arr[i] = temp[i];
-
-	return j;
+    return j;
 }
 
-// Driver code
+// time : O(N + N*log(N)) -> O(N*log(N))
+// space : O(U) with U = the number of unique number
+vector<int> remove_duplicates(vector<int>& arr)
+{
+    int n = arr.size();
+	if (n == 0 || n == 1)
+		return arr;
+
+    sort(arr.begin(), arr.end());
+    vector<int> temp;
+
+    temp.push_back(arr[0]);
+	for (int i = 1; i < n; i++)
+    {
+		if (arr[i] != arr[i - 1]) {
+			temp.push_back(arr[i]);
+        }
+    }
+    return temp;
+}
+
 int main()
 {
-	vector<int> arr = {1, 2, 2, 3, 4, 4, 4, 5, 5};
+    {
+        vector<int> arr = {1, 2, 2, 3, 4, 4, 4, 5, 5};
 
-	// removeDuplicates() returns new size of
-	// array.
-    int n = inplace_remove_duplicates(arr);
+        int n = inplace_remove_duplicates(arr);
 
-	// Print updated array
-	for (int i=0; i<n; i++)
-	cout << arr[i] << " ";
-
+        for (int i=0; i<n; i++)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+    {
+        vector<int> arr = {2, 1, 2, 3, 4, 5, 4, 5, 4};
+        auto res = remove_duplicates(arr);
+        for (int i = 0; i < res.size(); i++)
+            cout << res[i] << " ";
+        cout << endl;
+    }
 	return 0;
 }
