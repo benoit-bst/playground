@@ -3,6 +3,20 @@
 using namespace std;
 
 /*
+
+Topic:
+
+As discussed in the previous post, we discussed that there are two ways efficiently solve the above problem.
+
+1) Preprocess Pattern: KMP Algorithm, Rabin Karp Algorithm, Finite Automata, Boyer Moore Algorithm.
+2) Preprocess Text: Suffix Tree
+
+The best possible time complexity achieved by first (preprocssing pattern) is O(n)
+and by second (preprocessing text) is O(m) where m and n are lengths of pattern and text respectively.
+*/
+
+
+/*
  * **************************************
  * Trie Tree
  * **************************************
@@ -35,6 +49,8 @@ TrieNode::~TrieNode()
 
 void insert(TrieNode& root, string key, int index);
 
+// time: O(N^2)
+// space: O(N^2)
 void load(TrieNode& root, string& str)
 {
     // insert into trie tree
@@ -44,6 +60,8 @@ void load(TrieNode& root, string& str)
     }
 }
 
+// time: O(N)
+// space: O(N)
 void insert(TrieNode& root, string key, int idx)
 {
     struct TrieNode *pCrawl = &root;
@@ -61,6 +79,7 @@ void insert(TrieNode& root, string key, int idx)
     }
 }
 
+// time: O(m) with m the pattern length
 vector<int> search(TrieNode& root, string& key)
 {
     TrieNode *pCrawl = &root;
