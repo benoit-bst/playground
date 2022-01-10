@@ -22,7 +22,7 @@ int find_the_missing_number(vector<int> arr)
 int main()
 {
     vector<int> arr = { 3, 4, 9, 8, 7, 1, 2, 6};
-    cout << find_the_missing_number(arr) << endl; // 2, 9
+    cout << find_the_missing_number(arr) << endl; // 5
 
     return 0;
 }
