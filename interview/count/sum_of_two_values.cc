@@ -16,7 +16,7 @@ bool sum_of_two_values(vector<int> in, int sum) {
     return false;
 }
 
-// O(N + log(N)) -> O(N)
+// O(N + N*log(N)) -> O(N*log(N))
 bool sum_of_two_values_2(vector<int> in, int sum) {
 
     sort(in.begin(), in.end());
