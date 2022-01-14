@@ -5,6 +5,12 @@ using namespace std;
 // Function to sort the input array,
 // the array is assumed
 // to have values in {0, 1, 2}
+//
+// Consider this problem on an array;
+// the task is to sort arrays of 0, 1, and 2 in linear time
+// without any extra space.
+// Since the array is only traversed once,
+// the time complexity of the algorithm given below is O(n).
 void DNFS(int arr[], int arr_size)
 {
     int low = 0;
@@ -35,8 +41,6 @@ void DNFS(int arr[], int arr_size)
         }
     }
 }
-
-
 
 // Function to print array arr[]
 void printArray(int arr[], int arr_size)
