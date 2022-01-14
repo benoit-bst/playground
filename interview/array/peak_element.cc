@@ -70,6 +70,7 @@ int main()
         for (auto& _val : res) {
             cout << _val << " " << endl; // 2
         }
+        cout <<  fast_findPeak(arr, n) << endl; // 2
     }
     {
         int arr[] = { 1, 3, 20, 4, 1, 0, 1, 10, 3};
