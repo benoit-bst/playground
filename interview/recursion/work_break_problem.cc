@@ -13,8 +13,8 @@ bool _is_present_in_dic(vector<string>& dic, string in) {
 }
 
 // Recursion
-// O(2^n)
-// O(N^2)
+// space : O(2^n)
+// time  : O(N)
 void is_present(vector<string>& dic, string in, set<string>& res) {
 
     if (in.size() == 0) {
