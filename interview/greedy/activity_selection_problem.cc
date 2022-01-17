@@ -35,7 +35,7 @@ void printMaxActivities(vector<int> s, vector<int> f)
     }
 }
 
-//  time O(N)
+//  time O(N*log(N) + N) -> O(N*log(N))
 //  space O(N)
 void SelectActivities(vector<int>s,vector<int>f){
 // Vector to store results.
