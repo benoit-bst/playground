@@ -3,7 +3,7 @@
 using namespace std;
 
 // time  : O(N)
-// space : O(C) qhere C is the lowercase alphabet size (26)
+// space : O(C) where C is the lowercase alphabet size (26)
 int longest_unique_sub_str(string s)
 {
     unordered_map<char, int> seen;
