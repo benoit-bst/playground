@@ -40,10 +40,9 @@ serve several purposes:
 
 approaches:
 
-- single-leader replication, send write to a single node, which sends a stream of data change events to the other replicas  
+- single-leader replication, send write to a single node, which sends a stream of data change events to the other replicas
 - multi-leader replication, sends to one of several nodes, which sends a stream of data change events to the other nodes
 - leaderless replication, sends to several nodes and read from several nodes in parallel in order to detect and correct nodes with stale data.
-
 - single is easy to use (no conflict resolution), while multi and leaderless are robust to faulty nodes, network failures, and latency spikes, but providing only very weak consistency guarantees.
 - Can be synch/asynch. Asynch can be fast when the system is running smoothy.
 
@@ -85,4 +84,26 @@ Join algorithm:
 
 - sort-merge joins, inputs being joined goes through a mapper that extracts the join key. By partitioning, sorting, and merging, all records with the same key, finish going to the same call of teh reducer
 - hash joins, when a large dataset is joined with a small dataset. Data is partitioned by some hash function.
+
+## stream processing
+
+1. AMQP
+
+- delete when consumer acknowledge
+- exact order is not important
+- no need to go back and read old
+
+2. Log-based message broker
+
+- assign all messages in a partition to the same consumer node, and always delivers messages in the same order.
+- maintain meassages on disk, so it is possible to jump back and reread old messages
+
+### Event driven batch processing
+
+- copier, create 2 flows
+- filter, remove certain values of the queue
+- splitter, create several different flows
+- sharder, slighty more generic form of splitter. route the flux on diffrent flow but can aggregate if there is a failed
+- merger, merge several flows
+
 
