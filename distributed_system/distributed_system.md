@@ -14,6 +14,23 @@
 - leaderless system and multi-leader replication (do not use global consensus)
 - act of god (human restart machine)
 
+### CAP theorem
+
+1. consistency, Availability, Partition tolerance
+
+- Partition tolerance - consistent hashing
+- consistency - quorum consensus (strong, weak, eventual consistency)
+- eventual consitency - dynamo, cassandra 
+- vector clock for consistency (add complexity, could grow rapidly so need threshold)
+
+2. availability - handling and failures detection
+
+- decentralized failure detection using protocol like gossip protocol. We maintain a centralized table with a heartbeat counter and the last time updated.
+- temporary failures. sloppy quorum : ignoring nodes down and choose healthy servers.
+- permanent failures. anti-entropy protocol to keep replicas in sync. a Merkle/Hash tree is used for inconsistency detection. It is more fast to detect when to servers have differences.
+
+3. data centre outage.
+
 ### Issues and partial failures
 
 A distributed system has to be fault tolerant.
