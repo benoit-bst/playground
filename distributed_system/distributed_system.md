@@ -21,7 +21,7 @@
 - Partition tolerance - consistent hashing
 - consistency - quorum consensus (strong, weak, eventual consistency)
 - eventual consitency - dynamo, cassandra 
-- vector clock for consistency (add complexity, could grow rapidly so need threshold)
+- vector clock for consistency, generate aprtial ordering of vents and detects causality violations (add complexity, could grow rapidly so need threshold)
 
 2. availability - handling and failures detection
 
@@ -29,7 +29,7 @@
 - temporary failures. sloppy quorum : ignoring nodes down and choose healthy servers.
 - permanent failures. anti-entropy protocol to keep replicas in sync. a Merkle/Hash tree is used for inconsistency detection. It is more fast to detect when to servers have differences.
 
-3. data centre outage.
+3. data center outage.
 
 ### Issues and partial failures
 
@@ -77,6 +77,7 @@ strange effect cause by replicatin lag:
 - hybrid parition: one part of the key to identify the partition and another part for the sorted order
 - by definition, every partition operates mostly independently -> scale easily
 - issue: write on several partition is hard because if one request fails. Prevent by snapshot isolation
+
 ### transaction
 
 - without transctions, various error scenarios mean data can become inconsistent 

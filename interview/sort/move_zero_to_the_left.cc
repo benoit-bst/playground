@@ -7,17 +7,15 @@ using namespace std;
 // O(N)
 void move_zero_to_the_left(vector<int>& in) {
 
+    vector<int> buff;
     int count_zero = 0;
     for (int i =0; i < in.size(); ++i) {
         if (in[i] == 0) {
             count_zero++;
+            buff.push_back(0);
         }
     }
 
-    vector<int> buff;
-    for (int i = 0; i < count_zero; ++i) {
-        buff.push_back(0);
-    }
     for (int i = 0; i < in.size(); ++i) {
         if (in[i] != 0) {
             buff.push_back(in[i]);
