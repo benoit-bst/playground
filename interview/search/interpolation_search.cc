@@ -1,6 +1,24 @@
 #include <iostream>
 using namespace std;
 
+/*
+The Interpolation Search is an improvement over Binary Search
+for instances, where the values in a sorted array are
+uniformly distributed. Binary Search always goes
+to the middle element to check. On the other hand,
+interpolation search may go to different locations according to
+the value of the key being searched.
+For example, if the value of the key is closer to the last element,
+interpolation search is likely to start search toward
+the end side
+*/
+
+
+// If the data set is sorted and uniformly distributed,
+// the average case time complexity of Interpolation Search is
+// O(log_2(log(N))
+// where N is the total number of elements in the array
+// space : O(1)
 int interpolationSearch(int arr[], int lo, int hi, int x)
 {
     int pos;
