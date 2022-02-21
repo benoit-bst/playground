@@ -35,9 +35,11 @@
       <artifactId>commons-collections4</artifactId>
       <version>4.1</version>
     </dependency>
-
-
   </dependencies>
+
+  <!--<modules>-->
+    <!--<module>src/module1</module>-->
+  <!--</modules>-->
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

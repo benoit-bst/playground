@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 
 import org.apache.commons.collections4.list.TreeList;
 
+import com.mycompany.app.utils.Utils;
+
 /**
  * TreeList test
  */
@@ -24,6 +26,7 @@ public class App
         for (int i = 0; i < tree_list.size(); i++) {
             System.out.println(tree_list.get(i));
         }
+        logger.info("static value " + Utils.STATIC_VALUE);
     }
 
     public static void main(final String[] args)
